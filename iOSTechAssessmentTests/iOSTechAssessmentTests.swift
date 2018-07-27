@@ -11,26 +11,25 @@ import XCTest
 
 class iOSTechAssessmentTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testAPICallUsingAPIClient() {
+        
+        let promise = expectation(description: "Simple Request")
+        
+        APIClient.shared().getData { (success, result, message) in
+            switch success {
+            case true :
+                XCTAssertTrue(success, "data fetch successfully")
+                XCTAssertTrue(result?.status == "OK")// Test status
+                XCTAssertTrue(result?.results?.count == 20)// Check total result item count should be 20
+                XCTAssertEqual(message, "") // Check message is a Empty String
+                promise.fulfill()
+            case false:
+                XCTAssertFalse(success, "error in data fetching from server")
+            }
         }
+        waitForExpectations(timeout: 5, handler: nil)
     }
+    
     
 }

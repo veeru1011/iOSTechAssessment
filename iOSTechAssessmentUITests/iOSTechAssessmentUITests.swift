@@ -9,17 +9,15 @@
 import XCTest
 
 class iOSTechAssessmentUITests: XCTestCase {
-        
+    
+    
+    var app: XCUIApplication!
     override func setUp() {
         super.setUp()
         
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
-
+        app = XCUIApplication()
+        
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
     
@@ -28,9 +26,41 @@ class iOSTechAssessmentUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testPerformanceExample() {
+        // This is an example of a performance test case.
+        self.measure {
+            XCUIApplication().launch()
+        }
+    }
+    
+    func testTableInteraction() {
+        
+        app.launch()
+        let tableView = app.tables["TableViewAccessibilityIdentifier"]
+        XCTAssertTrue(tableView.exists, "The fact tableview exists")
+        
+        // Get an array of cells
+        let tableCells = tableView.cells
+        if tableCells.count > 0 {
+            
+            let promise = expectation(description: "Wait for table view Scrolling")
+            tableView.swipeUp()
+            tableView.swipeDown()
+            
+            
+            let tableCell = tableCells.element(boundBy: 0)
+            XCTAssertTrue(tableCell.exists, "The cell is in place on the table")
+            tableCell.tap()
+            app.navigationBars.buttons.element(boundBy: 0).tap()
+            
+            promise.fulfill()
+            waitForExpectations(timeout: 20, handler: nil)
+            XCTAssertTrue(true, "Finished table view Scrolling")
+            
+        } else {
+            XCTAssertTrue(tableCells.count == 0, "Was not able to find any table cells")
+        }
+        
     }
     
 }
