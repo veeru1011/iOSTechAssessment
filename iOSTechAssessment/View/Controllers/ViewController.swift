@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUpNavigationBar()
         setUpTableview()
         setUpItemListViewModel()
         itemListViewModel.getItemList()
@@ -70,6 +71,23 @@ class ViewController: UIViewController {
         }
     }
     
+    //  NavigationBar setup method
+    func setUpNavigationBar() {
+        navigationItem.title = "NY Times Most Popular"
+        self.navigationController?.navigationBar.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.navigationController?.navigationBar.titleTextAttributes = [.font: UIFont.systemFont(ofSize: 22), .foregroundColor:#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)]
+        
+        
+        let leftBarButton: UIBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "toggle.png"), style:.plain, target: self, action: #selector(navButtonTapped))
+        
+        self.navigationItem.leftBarButtonItem = leftBarButton
+        let searchBarButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(navButtonTapped))
+        let menuBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "menu"), style:.plain, target: self, action: #selector(navButtonTapped))
+        
+        self.navigationItem.rightBarButtonItems = [menuBarButton, searchBarButton]
+
+    }
+    
     // MARK: - AlertMessage UI
     func showAlert(_ message: String, title: String = "Alert") {
         DispatchQueue.main.async {
@@ -78,6 +96,10 @@ class ViewController: UIViewController {
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
             self.present(alertController, animated: true, completion: nil)
         }
+    }
+    
+    @objc func navButtonTapped(sender: Any) {
+        print("Navigation Button Tapped")
     }
 
 }

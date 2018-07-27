@@ -47,7 +47,7 @@ class DetailViewController: UIViewController {
             self.sectionLabel.text = "Section: \(item.section ?? "")"
             self.sourceLabel.text = "Source: \(item.source ?? "")"
             self.abstractLabel.text = "Abstract: \(item.abstract ?? "")"
-            self.title = item.title ?? ""
+            self.title = "Detail"
             
             if let urlString = item.url {
                 let url = URL(string: urlString)
