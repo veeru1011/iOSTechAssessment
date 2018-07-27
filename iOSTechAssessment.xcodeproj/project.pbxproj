@@ -24,7 +24,6 @@
 		B9F8633A210B61E700600677 /* DynamicValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F86339210B61E700600677 /* DynamicValue.swift */; };
 		B9F8633C210B6F0400600677 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8633B210B6F0400600677 /* DetailViewController.swift */; };
 		B9F8633E210B794200600677 /* ItemCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8633D210B794200600677 /* ItemCellViewModel.swift */; };
-		B9F86340210B980C00600677 /* MediaDataItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8633F210B980C00600677 /* MediaDataItemViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,7 +67,6 @@
 		B9F86339210B61E700600677 /* DynamicValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicValue.swift; sourceTree = "<group>"; };
 		B9F8633B210B6F0400600677 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B9F8633D210B794200600677 /* ItemCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCellViewModel.swift; sourceTree = "<group>"; };
-		B9F8633F210B980C00600677 /* MediaDataItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDataItemViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,7 +207,6 @@
 			isa = PBXGroup;
 			children = (
 				B9F86333210B3E7C00600677 /* ItemViewCell.swift */,
-				B9F8633F210B980C00600677 /* MediaDataItemViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -354,7 +351,6 @@
 				B9106835210B19EF00B9449E /* ResultModel.swift in Sources */,
 				B9106802210B18EC00B9449E /* ViewController.swift in Sources */,
 				B9106837210B1A7F00B9449E /* APIClient.swift in Sources */,
-				B9F86340210B980C00600677 /* MediaDataItemViewCell.swift in Sources */,
 				B9F8633A210B61E700600677 /* DynamicValue.swift in Sources */,
 				B9106800210B18EC00B9449E /* AppDelegate.swift in Sources */,
 				B9F8632E210B384400600677 /* MediaItem.swift in Sources */,
